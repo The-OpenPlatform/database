@@ -63,7 +63,7 @@ INSERT INTO users (role, first_name, last_name, email, password_hash) VALUES
 ('admin', 'Admin', 'User', 'admin@topp.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
 
 -- Insert default settings
-INSERT INTO settings (setting_key, setting_value) VALUES
+INSERT INTO settings (s_key, s_value) VALUES
 ('app_name', 'TOPP Backend'),
 ('version', '1.0.0'),
 ('max_connections', '100'),
