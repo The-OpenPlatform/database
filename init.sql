@@ -11,9 +11,11 @@ CREATE TABLE modules (
 -- Create images table
 CREATE TABLE images (
     module_id UUID PRIMARY KEY,
-    image_file BYTEA,
+    image BYTEA,
+    fileformat VARCHAR(100) NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_images_module FOREIGN KEY (module_id) REFERENCES modules(module_id) ON DELETE CASCADE
 );
 
 -- Create users table
@@ -69,7 +71,6 @@ INSERT INTO settings (s_key, s_value) VALUES
 ('max_connections', '100'),
 ('debug_mode', 'false'),
 ('maintenance_mode', 'false'),
-('uuid_salt', '51Ewpl3lZkEVv8zg'),
 ('default_language', 'en'),
 ('timezone', 'UTC');
 
